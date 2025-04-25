@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         }, 100);
                     } else if (card.getAttribute("data-category") === filterValue) {
                         card.style.display = "block";
-                        // Add animation effect
                         setTimeout(() => {
                             card.style.opacity = "1";
                             card.style.transform = "translateY(0)";
@@ -191,18 +190,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         const title = articleElement.querySelector("h3").textContent;
                         const date = articleElement.querySelector(".news-date").textContent;
                         const previewText = articleElement.querySelector("p.news-preview").textContent;
-                        
-                        // Generate full article content
+
                         const fullContent = generateFullArticleContent(previewText, title);
-                        
-                        // Fill popup with data
                         popup.querySelector(".news-popup-image img").src = image;
                         popup.querySelector(".news-popup-tag").textContent = tag;
                         popup.querySelector(".news-popup-title").textContent = title;
                         popup.querySelector(".news-popup-date").textContent = date;
                         popup.querySelector(".news-popup-body").innerHTML = fullContent;
-                        
-                        // Show popup
                         popupOverlay.classList.add("active");
                         document.body.classList.add("popup-open");
                     });
